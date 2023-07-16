@@ -64,10 +64,9 @@ const LoginForm = ({...props}) => {
                     console.log(e.target.value)
                 }} 
                 />
-                
             <br />
             {buttonClicked ? alert : ''}
-            <MyButton name="Log in" onClick={() => handleOnClick()} />
+            <MyButton style={{marginLeft: '10px', marginTop: '8px'}} name="Log in" onClick={() => handleOnClick()} variant='contained' />
         </Card>
     </div>
 }
