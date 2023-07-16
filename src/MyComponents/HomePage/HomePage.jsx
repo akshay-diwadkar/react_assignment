@@ -28,10 +28,10 @@ const HomePage = () => {
     const [ogList, setOgList] = useState([])
     const [allCharacters, setAllCharacters] = useState([])
 
-    const search = async () => {
+    const search = () => {
         setIsLoading(true)
         if(searchTerm != ""){
-            console.log("oglist", ogList)
+            console.log("all chars", )
             let newList = ogList.filter((character) => character.name.toLowerCase().includes(searchTerm.toLowerCase()))
             newList.map((character) => console.log(character.name))
             setAllCharacters(newList)
@@ -40,32 +40,44 @@ const HomePage = () => {
         setIsLoading(false)
     }
 
-    const dataFetch = async () => {
-        console.log("data fetching")
+    const dataFetch = () => {
+        console.log("data fetching solo")
         setIsLoading(true);
-        const data = await (
-            await fetch(
+        fetch(
             'https://rickandmortyapi.com/api/character'
-            )
-        ).json();
-        console.log(data)
-        setAllCharacters(data.results.map((element) => {
-            let char = new Character(element.name, element.image)
-            console.log(char.name)
-            return char;
-        }))
-        allCharacters.map((character) => console.log(character.name))
-        console.log("All chars", allCharacters)
-        setOgList(allCharacters)
-        setIsLoading(false)
+        ).then((response) => response.json())
+        .then((data) => {
+            console.log("whats in the data? ", data.results)
+            setAllCharacters(data.results)
+            setOgList(data.results)
+            console.log("ALL CHARS", allCharacters)
+
+            allCharacters.map((character) => console.log(character.name))
+            setIsLoading(false)
+        })
     };
 
     useEffect(() => {
-        dataFetch();
+        const dataFetch2 = () => {
+            console.log("data fetching useff")
+            setIsLoading(true);
+            fetch(
+                'https://rickandmortyapi.com/api/character'
+            ).then((response) => response.json())
+            .then((data) => {
+                console.log("what in the data? ", data.results)
+                setAllCharacters(data.results)
+                setOgList(data.results)
+                console.log("ALL CHARS", allCharacters)
+                allCharacters.map((character) => console.log(character.name))
+                setIsLoading(false)
+            })
+        };
+        dataFetch2()
       }, []);
 
     const content = isLoading ? <center><h1>Loading... 😅</h1></center> : <Grid container spacing={2} style={{paddingLeft: '20vh'}}>
-        {allCharacters.map((character) => <Grid item>
+        {allCharacters.map((character) => <Grid item key={character.name}>
             <Item><div style={{width: '300px', height:'350px', backgroundRepeat: 'no-repeat', backgroundImage: `url(${character.image})`}}>
                     <div style={{paddingTop: '300px'}}>
                         <h3>{character.name}</h3>
@@ -79,12 +91,12 @@ const HomePage = () => {
         <Box sx={{width: '100%', height: '200px', paddingLeft: '55vh',}}>
             <MySearchField value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} onClick={()=>search()} onClear={()=>setSearchTerm("")}></MySearchField>
         </Box>
-        <center>
-            <MyButton name="Load All" variant='contained' onClick={()=>dataFetch()}></MyButton>
-        </center>
         <Box sx={{width: '100%', paddingLeft: '30px', paddingRight: '30px', paddingTop: '30px'}}>
             {content}
         </Box>
+        <center style={{paddingBottom: '50px', paddingTop: '50px'}}>
+            <MyButton name="Load All" variant='contained' onClick={()=>dataFetch()}></MyButton>
+        </center>
     </div>
 }
 
