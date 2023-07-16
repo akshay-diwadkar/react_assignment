@@ -1,16 +1,21 @@
-import { Search } from "@mui/icons-material"
-import { Box, Stack, TextField, Button, IconButton } from "@mui/material"
+import { Search, Clear } from "@mui/icons-material"
+import { Box, Stack, TextField, Button, IconButton, OutlinedInput, InputAdornment } from "@mui/material"
 import MyButton from "../MyButton/MyButton"
-
 const MySearchField = ({...props}) => {
     return <Stack direction='row'>
-        <TextField
-          id="outlined-basic"
-          placeholder="Search for Characters"
-          value={props.value}
-          onChange={(event) => props.onChange(event)}
-          style={{width: '500px'}}
-        />
+        <OutlinedInput
+            id="outlined-basic"
+            placeholder="Search for Characters"
+            value={props.value}
+            onChange={(event) => props.onChange(event)}
+            style={{width: '500px'}}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton onClick={()=>props.onClear()}>
+                    <Clear></Clear>
+                </IconButton>
+              </InputAdornment>
+            }></OutlinedInput>
         <MyButton variant='contained' name='Search' onClick={()=>props.onClick()}></MyButton>
     </Stack>
 }
