@@ -1,24 +1,17 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import LoginForm from './MyComponents/LoginForm/LoginForm';
+import MyButton from './MyComponents/MyButton/MyButton';
+import MyTextField from './MyComponents/MyTextField/MyTextField';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const content = isAuthenticated ? <h1>Hello</h1> : <LoginForm authenticate={(val) => setIsAuthenticated(val)} />
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn REACTjs
-        </a>
-      </header>
-    </div>
+      <div>
+        {content}
+      </div>
   );
 }
 
