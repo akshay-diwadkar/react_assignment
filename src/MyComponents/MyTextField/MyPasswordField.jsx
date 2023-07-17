@@ -17,7 +17,7 @@ const MyPasswordField = ({...props}) => {
       event.preventDefault();
     };
 
-    return <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+    return <FormControl sx={{ m: 1}} style={{width: props.width}} variant="outlined">
           <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"

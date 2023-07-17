@@ -51,6 +51,7 @@ const LoginForm = ({...props}) => {
                 label="Email Address" 
                 placeholder={"Eg. john@doe.com"} 
                 value={email} 
+                style={{width: '300px'}}
                 onChange={(e) => {
                     setEmail(e.target.value)
                     console.log(e.target.value)
@@ -61,6 +62,7 @@ const LoginForm = ({...props}) => {
                 id="outlined-adornment-password"
                 label="Password" 
                 value={password} 
+                width='300px'
                 onChange={(e) => {
                     setPassword(e.target.value)
                     console.log(e.target.value)
@@ -68,7 +70,7 @@ const LoginForm = ({...props}) => {
                 />
             <br />
             {buttonClicked ? alert : ''}
-            <MyButton style={{marginLeft: '10px', marginTop: '8px', background: '#4952d1'}} name="Log in" onClick={() => handleOnClick()} variant='contained' />
+            <MyButton style={{marginLeft: '10px', marginTop: '8px', background: '#4952d1', width: '300px', height: '50px'}} name="Log in" onClick={() => handleOnClick()} variant='contained' />
         </Card>
     </div>
 }
