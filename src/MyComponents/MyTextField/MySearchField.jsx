@@ -8,7 +8,7 @@ const MySearchField = ({...props}) => {
             placeholder="Search for Characters"
             value={props.value}
             onChange={(event) => props.onChange(event)}
-            style={{width: '500px'}}
+            style={{width: '500px', background: 'white'}}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton onClick={()=>props.onClear()}>

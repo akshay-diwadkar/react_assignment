@@ -86,7 +86,7 @@ const HomePage = () => {
         </Grid>)}
     </Grid>
 
-    return <div>
+    return <div style={{background: 'linear-gradient(to right bottom, #edffff,#c6c4f5)'}}>
         <h1 style={{paddingLeft: '50px'}}>Home</h1>
         <Box sx={{width: '100%', height: '200px', paddingLeft: '55vh',}}>
             <MySearchField value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} onClick={()=>search()} onClear={()=>setSearchTerm("")}></MySearchField>
