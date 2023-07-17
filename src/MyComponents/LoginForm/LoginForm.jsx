@@ -7,6 +7,7 @@ import { styled } from "@mui/system";
 import MyPasswordField from "../MyTextField/MyPasswordField"
 import { validEmail, validPassword } from "../Regex/Regex"
 import { Alert, Card, TextField} from "@mui/material"
+import { Lock } from "@mui/icons-material";
 
 const LoginForm = ({...props}) => {
     const [email, setEmail] = useState('')
@@ -42,6 +43,7 @@ const LoginForm = ({...props}) => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",}}>
         <Card sx={{ height: '90%', width: '25%', justifyContent:'center', paddingLeft: '50px', paddingRight:'50px', marginTop:"20px", marginLeft: '20px', paddingTop: '10px'}}>
+            <Lock fontSize="large" style={{paddingLeft: '45%', paddingTop: '50px', paddingBottom: '10px', color: '#4952d1'}}></Lock>
             <h1>Rick & Morty</h1>
             <h5>A Collection of Rick & Morty characters, locations & episodes</h5>
             <MyTextField 
@@ -66,7 +68,7 @@ const LoginForm = ({...props}) => {
                 />
             <br />
             {buttonClicked ? alert : ''}
-            <MyButton style={{marginLeft: '10px', marginTop: '8px'}} name="Log in" onClick={() => handleOnClick()} variant='contained' />
+            <MyButton style={{marginLeft: '10px', marginTop: '8px', background: '#4952d1'}} name="Log in" onClick={() => handleOnClick()} variant='contained' />
         </Card>
     </div>
 }
