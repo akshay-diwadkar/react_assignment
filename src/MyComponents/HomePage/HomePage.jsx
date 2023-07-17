@@ -97,7 +97,7 @@ const HomePage = () => {
             {content}
         </Box>
         <center style={{paddingBottom: '50px', paddingTop: '50px'}}>
-            <MyButton name="Load All" variant='contained' onClick={()=>dataFetch()}></MyButton>
+            <MyButton name="Load All" variant='contained' onClick={()=>dataFetch()} style={{background: '#4952d1'}}></MyButton>
         </center>
     </div>
 }

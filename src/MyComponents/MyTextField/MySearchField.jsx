@@ -16,7 +16,7 @@ const MySearchField = ({...props}) => {
                 </IconButton>
               </InputAdornment>
             }></OutlinedInput>
-        <MyButton variant='contained' name='Search' onClick={()=>props.onClick()}></MyButton>
+        <MyButton variant='contained' name='Search' onClick={()=>props.onClick()} style={{background: '#4952d1'}}></MyButton>
     </Stack>
 }
 
