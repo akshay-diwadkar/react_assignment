@@ -78,9 +78,11 @@ const HomePage = () => {
 
     const content = isLoading ? <center><h1>Loading... 😅</h1></center> : <Grid container spacing={2} style={{paddingLeft: '20vh'}}>
         {allCharacters.map((character) => <Grid item key={character.name}>
-            <Item><div style={{width: '300px', height:'350px', backgroundRepeat: 'no-repeat', backgroundImage: `url(${character.image})`}}>
-                    <div style={{paddingTop: '300px'}}>
-                        <h3>{character.name}</h3>
+            <Item><div style={{width: '300px', height:'420px', backgroundRepeat: 'no-repeat', backgroundImage: `url(${character.image})`}}>
+                    <div style={{paddingTop: '290px'}}>
+                        <p style={{fontSize: '20px', fontWeight: '800'}}>{character.name}</p>
+                        <p style={{}}>Species: {character.species}</p>
+                        <p style={{fontStyle: 'italic'}}>Status: {character.status}</p>
                     </div>
                 </div></Item>
         </Grid>)}
